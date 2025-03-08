@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../textures/backgroundImage.jpg') no-repeat center center;
+        background-size: cover;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        z-index: 1000;
+        flex-direction: column;
+}
+
+@font-face {
+    font-family: 'minecraftTitle'; /*nós que crimos esse nome*/
+    src: url("../fonts/minecraftTitle.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#loading-screen #title-container {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+#loading-screen #title-container h1 {
+    font-family: 'minecraftTitle', serif;
+    font-size: 6rem;
+}
+
+@font-face {
+    font-family: 'minecraftText'; /*nós que crimos esse nome*/
+    src: url("../fonts/minecraftText.otf") format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#loading-screen #title-container h2 {
+    font-family: 'minecraftText', serif;
+    font-size: 2rem;
+}
+
+#loading-screen #loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: showLoader 0s forwards 0.3s;
+}
+
+@keyframes showLoader {
+    to {
+        opacity: 1;
+    }
+}
+
+#loading-screen #loader #btn-loading {
+    font-family: 'minecraftText', serif;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+}
+
+#loading-screen #loader .box-loader {
+    position: relative;
+    width: 400px;
+    height: 4px;
+    background-color: black;
+}
+
+#loading-screen #loader .box-loader::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0bec7c;
+    transform-origin: left;
+    animation: animarLoader 8s linear;
+}
+
+@keyframes animarLoader {
+    0%, 20% {
+        transform: scaleX(0);
+    }
+}
+
+#loading-screen #btn-start {
+    display: none;
+    font-family: 'minecraftText', serif;
+    width: 20rem;
+    height: 4rem;
+    background-color: #cfcfcf;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 2rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+#loading-screen #btn-start:hover {
+    background-color: #c3c3c3;
+}
